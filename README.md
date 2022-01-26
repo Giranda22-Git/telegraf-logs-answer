@@ -5,12 +5,12 @@ This library is a middleware that allows you to write a user action logger in a 
 _only works in conjunction with telegraf.js_
 _only works in nodejs v14 and above_
 
-#### Installation
+### Installation
 To install locally in a project, use
 ```
 $ npm install telegraf-logs-answer --save
 ```
-#### Usage
+### Usage
 
 ```
 const telegrafLA = require('telegraf-logs-answer')
@@ -28,5 +28,5 @@ mainBot.use(telegrafLA({
 mainBot.launch()
 ```
 
-#### Result
+### Result
 As a result, you will have your main bot, and a logger bot that sends you logs, in order to answer a person on behalf of the bot, you need to write a message in response to the message of the logger bot
