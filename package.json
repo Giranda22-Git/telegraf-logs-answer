@@ -1,0 +1,26 @@
+{
+  "name": "telegraf-logs-answer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Giranda22-Git/telegraf-logs-answer.git"
+  },
+  "keywords": [],
+  "author": "Giranda22-Git",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Giranda22-Git/telegraf-logs-answer/issues"
+  },
+  "homepage": "https://github.com/Giranda22-Git/telegraf-logs-answer#readme",
+  "devDependencies": {
+    "nodemon": "2.0.15"
+  },
+  "dependencies": {
+    "telegraf": "^4.6.0"
+  }
+}
