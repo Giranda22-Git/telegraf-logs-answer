@@ -1,7 +1,19 @@
 const getButtonByCallbackData = require('./utils/getButtonByCallbackData.js')
+const getTGidFromLoggerMessage = require('./utils/getTGidFromLoggerMessage.js')
 
-const main = function (setting) {
-  const logger = function (ctx, next) {
+const logger = function (setting) {
+  setting.loggerBot.on('message', (ctx) => {
+    if (ctx.update?.message.reply_to_message && ctx.update?.message?.text) {
+      setting.answerBot.telegram.sendMessage(
+        getTGidFromLoggerMessage(ctx.update.message.reply_to_message.text),
+        ctx.update.message.text
+      )
+    }
+  })
+
+  setting.loggerBot.launch()
+
+  const init = function (ctx, next) {
     try {
       const telegramId = ctx.update.callback_query?.from.id || ctx.update.message?.from.id
       let userAnswer = ctx.update.callback_query?.data || ctx.update.message?.text
@@ -37,7 +49,7 @@ Answer:
     }
   }
 
-  return logger
+  return init
 }
 
-module.exports = main
+module.exports = logger
