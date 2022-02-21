@@ -1,12 +1,20 @@
 const getButtonByCallbackData = require('./utils/getButtonByCallbackData.js')
 const getTGidFromLoggerMessage = require('./utils/getTGidFromLoggerMessage.js')
+const getButtonsFromUserSyntax = require('./utils/getButtonsFromUserSyntax.js')
 
 const logger = function (setting) {
   setting.loggerBot.on('message', (ctx) => {
+    if (ctx.update?.message.text === '/groupTGID') {
+      ctx.reply(ctx.update?.message?.chat.id)
+    }
+
     if (ctx.update?.message.reply_to_message && ctx.update?.message?.text) {
+      const resultOfSyntax = getButtonsFromUserSyntax(ctx.update.message.text)
+      console.log(resultOfSyntax, resultOfSyntax.reply_markup.reply_markup.inline_keyboard)
       setting.answerBot.telegram.sendMessage(
         getTGidFromLoggerMessage(ctx.update.message.reply_to_message.text),
-        ctx.update.message.text
+        resultOfSyntax.newMessage,
+        resultOfSyntax.reply_markup
       )
     }
   })

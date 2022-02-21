@@ -1,6 +1,6 @@
 {
   "name": "telegraf-logs-answer",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "this library is a middleware that allows you to write a user action logger in a few lines of code and the ability to respond to users on behalf of a bot",
   "main": "./index.js",
   "module": "./index.js",
